@@ -1,0 +1,711 @@
+@charset "utf-8";
+body {
+	margin:0px;
+	height:100%;
+}
+html {
+	margin:0px;
+	height:100%;
+}
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+/*h1, h2, h3, h4, h5, h6, p {
+	padding-right: 15px;
+	padding-left: 15px; 
+}*/
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: none; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+/* ~~ Este contenedor de anchura fija rodea a todas las demás bloques ~~ */
+
+.container1 {
+    width: 100%;
+    height: auto;
+    background:#FFF;
+    margin: 0 auto 0 0; /* el valor automático de los lados, unido a la anchura, centra el diseño  */
+}
+/* ~~ No se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. ~~ */
+.header {
+	background-color:#0B243B;
+	width:100%;
+    min-height: 120px;
+	color:#FFF;
+}
+
+.headerNotiWeb {
+	background-color:#0B243B;
+	width:100%;
+    min-height: 30px;
+	color:#FFF;
+	padding-top: 0.5%;
+}
+
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de los elementos del bloque. Los elementos situados dentro de estos bloques tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral al bloque propiamente dicho, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en el  bloque y colocar un segundo bloque dentro de éste sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en un bloque configurado para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de bloques para los que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla del elemento del bloque para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos bloques de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover los bloques por el código fuente HTML.
+
+*/
+
+.sidebar {
+	float: left; /* dado que este elemento es flotante, debe asignarse un ancho */
+    width: 100%; /* el ancho real de este div, en navegadores que cumplen los estándares, o el modo de estándares de Internet Explorer, incluirá el relleno y el borde además del ancho */
+}
+
+.sidebar1 {
+    float: left; /* dado que este elemento es flotante, debe asignarse un ancho */
+    width: 20%; /* el ancho real de este div, en navegadores que cumplen los estándares, o el modo de estándares de Internet Explorer, incluirá el relleno y el borde además del ancho */
+    border: 1px solid #666666;
+}
+
+.content {
+    float: left;
+	width: 78%;
+    min-height: 530px;
+    font-size: 10px;
+	background:#FFF;
+	margin-left: 0.5%;
+	margin-bottom: 5px;
+	margin-top: 0.5%;
+	padding: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+    -moz-transition: background 0.3s ease-in;
+    -webkit-transition: background 0.3s ease-in;
+    -o-transition: background 0.3s ease-in;
+    border: 1px solid #666666;
+    box-shadow: 3px 3px 7px #000000;
+	border-radius: 6px;
+}
+
+.content1 {
+    float: left;
+	width: 98%;
+    min-height: 575px;
+    font-size: 10px;
+	background:#FFF;
+	margin-left: 0.5%;
+	margin-bottom: 5px;
+	margin-top: 0.5%;
+	padding: 5px;
+    font-size: 14px;
+    -moz-transition: background 0.3s ease-in;
+    -webkit-transition: background 0.3s ease-in;
+    -o-transition: background 0.3s ease-in;
+    border: 1px solid #666666;
+    box-shadow: 3px 3px 7px #000000;
+	border-radius: 6px;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+
+.content ul, .content ol {
+    padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ El pie de página ~~ */
+.footer {
+	min-height: 40px;
+    line-height: 5px;
+    padding: 10px 0;
+    background-color: #0B243B;
+    color: #ffffff;
+    position: relative;/* esto da a IE6 el parámetro hasLayout para borrar correctamente */
+    clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+    font-size: 12px;
+    text-align: center;
+}
+
+.logo {
+    width: 20%;
+    float: left;
+    margin-top: 3%;
+	margin-left: 1%;
+}
+
+.titulo {
+    width: 70%;
+    float: right;
+    color: #FFFFFF;
+	margin-top: 2%;
+	margin-left: 1%;
+	margin-right: 1%;
+	/*margin-left: 15%;*/
+    font-weight: bold;
+    /*line-height: 2px;*/
+    text-align: right;
+    font-size: 48px;
+    text-shadow: 2px 2px #666666;
+}
+
+.titulo2 {
+    width: 100%;
+    float: left;
+	margin-top: -1%;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 2px;
+    text-align: right;
+    font-size: 62px;
+    text-shadow: 2px 2px #666666;
+}
+
+.tituloBackend {
+    width: 60%;
+    float: left;
+    color: #FFFFFF;
+	margin-top: 1%;
+	margin-left: 15%;
+    font-weight: bold;
+    line-height: 40px;
+    text-align: right;
+    font-size: 50px;
+    text-shadow: 2px 2px #666666;
+}
+
+.clearbox {
+    clear: both;
+    background-color: #996699;
+}
+
+.loginNotiWeb {
+    width: 30%;
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    font-size: 14px;
+    padding-right: 2px;
+	margin-top: 9%;
+	margin-left: auto;
+	margin-right: auto;
+    box-shadow: 3px 3px 7px #000000;
+    border-radius:9px;
+    -moz-border-radius:9px;
+    -webkit-border-radius:9px;
+	position: relative;
+	z-index: 99;
+}
+
+.repNotiWeb {
+    width: 70%;
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    font-size: 14px;
+    padding-right: 2px;
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+    box-shadow: 3px 3px 7px #000000;
+    border-radius:9px;
+    -moz-border-radius:9px;
+    -webkit-border-radius:9px;
+	position: relative;
+	z-index: 99;
+}
+
+.formulario {
+    width: 99%;
+    height: auto;
+    margin-top: 1%;
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    font-size: 12px;
+    padding-right: 2px;
+    padding-left: 2px;
+    box-shadow: 3px 3px 7px #000000;
+}
+
+.formulario1 {
+    width: 99%;
+    min-height: 515px;
+    margin-top: 1%;
+	margin-bottom: 1%;
+    border: 1px solid #666666;
+    background-color: #ffffff;
+    font-size: 12px;
+    padding-right: 3px;
+    padding-left: 2px;
+    border-radius:9px;
+    -moz-border-radius:9px;
+    -webkit-border-radius:9px;
+    box-shadow: 3px 3px 7px #000000;
+}
+
+#logoPrincipal{
+	background-image:url(../images/logoNotiWeb.png);
+	background-repeat:no-repeat;
+	width:800px;
+	min-height:500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1.5%;
+    display: block;
+}
+
+/*#notifica {
+    display: block;
+    font-family: 'Abril Fatface', cursive;
+	color:#036;
+    font-size: 100px;
+	text-shadow: black 8px 10px 5px;
+	margin-left: 40%;
+	margin-top: -30%;
+	position: absolute;
+}
+*/
+.texto{
+    border: 1px solid #666666;
+    font-size: 14px;
+}
+
+.info, .exito, .alerta, .errores {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    border: 1px solid;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    margin-top: 5px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+}
+
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    text-align: center;
+    width: 78.5%;
+    margin-left: 4px;
+    position: absolute;
+}
+
+.exito {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    text-align: center;
+    width: 76.5%;
+    margin-left: 4px;
+    position: absolute;
+	z-index: 991;
+}
+
+.infoFrontend {
+    color: #00529B;
+    background-color: #BDE5F8;
+    text-align: center;
+    width: 97%;
+	height: 3%;
+    margin-left: 4px;
+	padding-top: 5px;
+    position: absolute;
+	border: 2px solid #ddd;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd;
+	box-shadow: 0 2px 3px #444;
+	-moz-box-shadow: 0 2px 3px #444;
+	-webkit-box-shadow: 0 2px 3px #444;
+	-o-box-shadow: 0 2px 3px #444;
+	font-weight:bold;
+	z-index: 991;
+}
+.exitoFrontend {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    text-align: center;
+    width: 97%;
+	height: 3%;
+    margin-left: 4px;
+	padding-top: 5px;
+    position: absolute;
+	border: 2px solid #ddd;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd;
+	box-shadow: 0 2px 3px #444;
+	-moz-box-shadow: 0 2px 3px #444;
+	-webkit-box-shadow: 0 2px 3px #444;
+	-o-box-shadow: 0 2px 3px #444;
+	font-weight:bold;
+	z-index: 991;
+}
+.errorFrontend {
+    color: #D8000C;
+    background-color: #FFBABA;
+    text-align: center;
+    width: 97%;
+	height: 3%;
+    margin-left: 4px;
+	padding-top: 5px;
+    position: absolute;
+	border: 2px solid #ddd;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd;
+	box-shadow: 0 2px 3px #444;
+	-moz-box-shadow: 0 2px 3px #444;
+	-webkit-box-shadow: 0 2px 3px #444;
+	-o-box-shadow: 0 2px 3px #444;
+	font-weight:bold;
+	z-index: 991;
+}
+.alerta {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    text-align: center;
+    width: 78.5%;
+    margin-left: 4px;
+    position: absolute;
+}
+
+.errores {
+    color: #D8000C;
+    background-color: #FFBABA;
+    text-align: center;
+    width: 90%;
+    margin-left: 4px;
+    position: absolute;
+	z-index: 991;
+}
+
+.warning {
+	background: #F00;
+	position: relative;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin-top: -1.3%;
+	color: #fff;
+	font-size: 11px;
+	border: 2px solid #ddd;
+	border-left: 2px solid #ddd;
+	border-right: 2px solid #ddd;
+	box-shadow: 0 2px 3px #444;
+	-moz-box-shadow: 0 2px 3px #444;
+	-webkit-box-shadow: 0 2px 3px #444;
+	-o-box-shadow: 0 2px 3px #444;
+	font-weight:bold;
+	z-index: 991;
+}
+
+#inputUsuario{
+    width: 120px;
+}
+
+#inputClave{
+    width: 120px;
+}
+
+.retornar{
+    float:left;
+    position:absolute;
+    font-size: 12px;
+    font-weight:bold;
+    text-align:center;
+    margin-left:2%;
+    padding-top: 12px;
+}
+
+.consultar{
+    float:left;
+    position:absolute;
+    font-size: 12px;
+    font-weight:bold;
+    text-align:center;
+    margin-left:55%;
+    padding-top: 17px;
+}
+
+.accesos{
+    width:100%;
+    height:550px;
+    float:left;
+    font-size: 12px;
+    font-weight:bold;
+    text-align:center;
+    padding-top: 10px;
+}
+
+.clave {
+    background-color: #FFF;
+    float: left;
+    width: 550px;
+    position: absolute;
+    border: medium solid #999;
+    margin-top: 15%;
+    margin-left: 15%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    z-index:99;
+}
+
+.mantenimiento{
+	margin-left: 40%;
+	margin-top: 5%;
+}
+
+#botonGrabar { 
+	background:url('../../public/images/grabar.jpg') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonListado { 
+	background:url('../../public/images/anadir.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonExportar { 
+	background:url('../../public/images/icon_pdf.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonBuscar { 
+	background:url('../../public/images/portfolio.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonEliminar { 
+	background:url('../../public/images/error.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonSalir { 
+	background:url('../../public/images/salir.gif') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonSubir { 
+	background:url('../../public/images/telematica.gif') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonAceptar { 
+	background:url('../../public/images/bulb2.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonAnadir { 
+	background:url('../../public/images/add.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonAnadirG { 
+	background:url('../../public/images/bulb2.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonCargando { 
+	background:url('../../public/images/bulb2.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonLimpiar { 
+	background:url('../../public/images/limpiar.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#botonImprimir { 
+	background:url('../../public/images/print.png') no-repeat; background-color:#CCC; font-size:12px; font-weight:bold; width:100px; height:25px; margin-left: 2%; margin-right: 3%;
+}
+
+#boxes .window {
+  position:absolute;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+ 
+ 
+/* Customize your modal window here, you can add background image too */
+#boxes #dialog {
+  width:375px;
+  height:203px;
+}
+
+#mask {
+  position:absolute;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+
+.barra {
+  width: 100%;
+  margin-top: 0.1%;
+  padding-top: 0.5%;
+  box-shadow: 3px 3px 7px #000000;
+/*  border-radius:9px;
+*/  border-color:#999;
+/*  -moz-border-radius:9px;
+  -webkit-border-radius:9px;
+*/
+}
+
+.derecha
+{
+	float:left;
+	width:70%;
+	height:520px;
+	border:#000 1px solid;
+    box-shadow:inset white 0px 0px 14px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+    box-shadow: 3px 3px 7px #000000;
+}
+
+.izquierda
+{
+	float:left;
+	width:25%;
+	height:auto;
+	border:#000 1px solid;
+    box-shadow: 3px 3px 7px #000000;
+	padding: 3px;;
+	margin-right: 3%;
+}
+
+.leyenda
+{
+	float:left;
+	width:100%;
+	height:auto;
+	padding: 3px;;
+	margin-right: 3%;
+}
+
+.contenedor
+{
+	background:#FFF;
+	width:98.5%;
+	min-height:510px;
+	margin-right: 1%;
+	margin-bottom: 1%;
+}
+
+#centroArriba
+{
+	float:left;
+	width:99%;
+	min-height:500px;
+	/*border:#000 1px solid;*/
+    box-shadow:inset white 0px 0px 14px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+    box-shadow: 3px 3px 7px #000000;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#centroIzquierda
+{
+	float:left;
+	width:50%;
+	height:350px;
+	margin-top: 1%;
+	/*border:#000 1px solid;*/
+    box-shadow:inset white 0px 0px 14px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+    box-shadow: 3px 3px 7px #000000;
+}
+
+#centroDerecha
+{
+	float:right;
+	width:48%;
+	height:350px;
+	margin-top: 1%;
+	margin-left:1%;
+	/*border:#000 1px solid;*/
+    box-shadow:inset white 0px 0px 14px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+    box-shadow: 3px 3px 7px #000000;
+}
+
+.loginContainer {
+	position: absolute;
+	border: 1px solid #c4c4c4;
+	width: 300px;
+	height: auto;
+	left: 50%;
+	top: 50%;
+	margin-left: -150px;
+	margin-top: -150px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+	background: #fefefe;
+	padding: 0px 20px 0 20px;
+}
+
+strong{
+	padding-left: 2px;
+}
+
+.flexigrid .more-icon
+{
+	background:url(../images/more.png); no-repeat;
+	cursor: pointer;
+	width: 16px;
+	height:16px;
+	float:right;
+	border: none !important;
+	padding:0px !important;
+	padding-bottom:0px !important;
+	margin-left:5px;
+	display: block;
+}
+
+.vcenter {
+	width: calc(100%/3 - 2*1em - 2*1px);
+/*	width:100%;*/
+	height:630px;
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+
+.contenido {
+    float: left;
+	width: 100%;
+	min-height: 630px;
+	padding: 5px;
+    font-size: 10px;
+	background:#aaa;
+	margin-top: 5px;
+	margin-bottom: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+    -moz-transition: background 0.3s ease-in;
+    -webkit-transition: background 0.3s ease-in;
+    -o-transition: background 0.3s ease-in;
+    border: 1px solid #fff;
+    box-shadow: 3px 3px 7px #000000;
+	border-radius: 6px;
+
+	background: -webkit-linear-gradient(45deg, #fff 90%, #fff 99%);
+	background: -moz-linear-gradient(45deg, #fff 90%, #fff 99%);
+    background-color: #fff;
+}
+
+.mayus {
+                text-transform: uppercase;
+}

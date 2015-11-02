@@ -1,0 +1,75 @@
+fieldset {
+    background: #CEE8FF;
+    font-size: 1em;
+    border: 1px solid #fff; /*BDBDBD*/
+    padding: 0em;
+    border-radius: 0.7em;
+}
+
+legend {
+	  font-size: 14px;
+  	color: #2980b9;
+  	font-weight: bold;
+  	background: #fff;
+  	width:18em;
+  	padding: 0.1em 1em;
+  	border: 1px solid #BDBDBD;
+  	/*border-color: #BDBDBD;*/
+  	border-radius: 0.7em;
+  	margin-left: 20px;
+}
+h5{
+    color: #2980b9;
+    margin-bottom: 0;
+}
+
+/*margen de todos los fieldset*/
+.margen-bloque{
+  margin-top: 30px;
+}
+/*inline block para campos*/
+.bloque-lineal{
+    display: inline-block;
+    line-height:30px;
+    float: right;
+}
+
+/*etiqueta label sin fondo y sin borde al unir 02 columnas en bootstrap*/
+.etiqueta{
+    background:none; 
+    border:none;
+}
+
+.labeltitulo2{
+  color: #2980b9;
+  font-size: 12px;
+  margin:0px;
+  padding-top: 15px;
+  text-transform: uppercase;
+}
+.labelnormal{
+  font-weight:normal;
+  font-size:13px;
+}
+/*convertir todas las entradas en mayusculas menos los placeholder*/
+input {
+    text-transform: uppercase;
+}
+::-webkit-input-placeholder {
+	text-transform: none;
+}
+:-moz-placeholder {
+    text-transform: none;
+}
+::-moz-placeholder {
+    text-transform: none;
+}
+:-ms-input-placeholder {
+    text-transform: none;
+}
+
+/* mostrar en minusculas y color gris placeholder para IE8 */
+.my-placeholder { 
+  color: #aaa;
+  text-transform: lowercase;
+}
